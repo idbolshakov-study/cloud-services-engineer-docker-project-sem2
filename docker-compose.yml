@@ -18,6 +18,8 @@ services:
       VUE_APP_API_URL: 'http://localhost:8081/'
     ports:
       - '8080:8080'
+    depends_on:
+      - backend
     healthcheck:
       test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080"]
       interval: 20s
