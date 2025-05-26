@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: 'test123'
+    restart: 'always'
+    ports:
+      - '8081:8081'
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8081/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    image: 'frontest123'
+    restart: 'always'
+    environment:
+      VUE_APP_API_URL: 'http://localhost:8081/'
+    ports:
+      - '8080:8080'
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
