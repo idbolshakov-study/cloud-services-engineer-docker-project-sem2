@@ -20,3 +20,7 @@ vendor/
 
 # frontend
 node_modules
+
+# vim
+*.swo
+*.swp

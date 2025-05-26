@@ -1,6 +1,6 @@
 services:
   backend:
-    image: 'test123'
+    image: '${DOCKER_SCOPE}/docker-project-backend'
     restart: 'always'
     ports:
       - '8081:8081'
@@ -12,7 +12,7 @@ services:
       start_period: 10s
 
   frontend:
-    image: 'frontest123'
+    image: '${DOCKER_SCOPE}/docker-project-frontend'
     restart: 'always'
     environment:
       VUE_APP_API_URL: 'http://localhost:8081/'
