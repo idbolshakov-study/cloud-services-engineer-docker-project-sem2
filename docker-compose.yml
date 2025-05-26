@@ -12,6 +12,11 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
 
   frontend:
     image: '${DOCKER_SCOPE}/docker-project-frontend'
@@ -30,6 +35,11 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
 
 networks:
   appnetwork:
